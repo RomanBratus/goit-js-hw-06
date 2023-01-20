@@ -16,16 +16,19 @@ const ingredients = [
     'Condiments',
 ];
 
-const ingredientsH = document.getElementById("ingredients");
-const ulElem = document.createElement("ul");
+let ingredients_list = document.querySelector('#ingredients');
 
-for (const ingredient of ingredients) {
-    const listElem = document.createElement("li");
-    listElem.textContent = ingredient;
-    ulElem.appendChild(listElem);
-}
+const createIngredients = ingredientsList => {
+    return ingredientsList.map(ingredient => {
+        const ingredients_item = document.createElement('li');
+        ingredients_item.classList.add('item');
+        ingredients_item.textContent = ingredient;
+
+        return ingredients_item;
+    });
+};
+
+const elements = createIngredients(ingredients);
+ingredients_list.append(...elements);
 
 
-ingredientsH.appendChild(ulElem)
-
-console.log(ulElem)
